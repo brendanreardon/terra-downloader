@@ -14,7 +14,7 @@ HEADERS = {"Authorization" : "bearer " + token}
 
 
 def download(series, folder):
-    blobs = ' '.join(series.tolist())
+    blobs = ' '.join(series.dropna().tolist())
     cmd = ' '.join(['gsutil -m cp', blobs, folder])
     subprocess.call(cmd, shell=True)
 
